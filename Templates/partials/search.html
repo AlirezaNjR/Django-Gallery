@@ -1,0 +1,7 @@
+<div class="search-bar">
+	<form action="{% url 'Gallery:Search' %}" method="POST">
+		{% csrf_token %}
+		<input type="text" name="search" class="search-inp">
+		<input type="submit" value="جستوجو" class="search-bar-btn">
+	</form>
+</div>

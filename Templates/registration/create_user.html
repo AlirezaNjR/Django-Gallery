@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <title> ساخت حساب کاربری </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration/create_user.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <form  method="post" class="create-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="ساخت" class="create-btn">
+        <a href="{% url 'Gallery:Home' %}" class="cancel-btn">بازگشت</a>
+    </form>  
+{% endblock body %}

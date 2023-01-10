@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+
+    <title>حذف {{Pic.title}}</title>
+    <link rel="stylesheet" href="{% static 'css/delete.css' %}">
+{% endblock head %}
+
+{% block body %}
+    <h1 style="text-align: center;">میخواهید این عکس را حذف کنید ؟</h1>
+    <img src="{{ Pic.image.url }}" alt="" srcset="" class="image">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="حذف" class="delete-btn">
+        <a href="{% url 'Gallery:Detail' Pic.id %}"  class="cancel-btn"> لغو </a>
+    </form>
+{% endblock body %}

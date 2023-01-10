@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.eot');
+    src: local('../fonts/Vazir'), url('../fonts/Vazir.woff') format('woff'), url('../fonts/Vazir.ttf') format('truetype'), url('../fonts/Vazir.svg') format('svg');
+}
+  
+  @font-face {
+    font-family: 'Hekayat';
+    src: url('../fonts/Hekayat\ Font.ttf');
+}
+
+
+*{
+    font-family: 'Vazir';
+    direction: rtl;
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+label{
+    font-size: 26px;
+    display: block;
+}
+
+input{ 
+    margin: 5px;
+    width: 30%;
+    height: 35px;
+    font-size: 22px;
+}
+
+select{
+    font-size: 22px;
+}
+
+textarea{
+    margin: 5px;
+    width: 30%;
+    height: 200px;
+    font-size: 20px;
+}
+
+.cancel-btn {
+    padding: 10px;
+    margin: 5px;
+    font-size: 26px;
+    background-color:#333; 
+    color: #EC407A;
+    cursor: pointer;
+    transition: 0.3s all;
+    border: transparent;
+    text-decoration: none;
+  }
+  
+.cancel-btn:hover {
+    background-color: #333;
+    color: #fff;
+    border-radius: 35px;
+}
+
+.change-btn { 
+    width: 100px !important;
+    height: 60px !important;
+    font-size: 26px;    
+    border-radius: 10px;
+    background-color: #EC407A;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 10px;
+    cursor: pointer;
+    border: transparent;
+}
+  
+.change-btn:hover {
+    background-color: #333;
+    color: #EC407A;
+}
+

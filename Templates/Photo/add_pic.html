@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/add_pic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+{% endblock head %}
+
+{% block body %}
+    {% include 'partials/header.html' %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title"><span style="color: red;">*</span>عنوان :</label>
+        <input type="text" name="title" id="title" required placeholder="گل زیبا" autofocus>
+        <br>
+        <label for="body"><span style="color: red;">*</span>توضیحات :</label>
+        <textarea name="body" id="body" cols="30" rows="10" placeholder="گل رز در ایران" required></textarea>
+        <br>
+        <label for="location">مکان :</label>
+        <select name="location" id="location">
+            <option value="ایران" selected> ایران </option>
+            <option value="آمریکا"> آمریکا </option>
+            <option value="ترکیه"> ترکیه </option>
+            <option value="کره"> کره </option>
+            <option value="روسیه"> روسیه </option>
+        </select>
+        <br>
+        <label for="tags" title="تگ هارا با , از هم جدا کنید"><span style="color: red;">*</span> تگ ها : </label>
+        <input type="text" name="tags" id="tags" required placeholder="مثال:ایران , گل , رز" >
+        <br>
+        <label for="image" style="display: inline;" ><span style="color: red;">*</span> تصویر : </label>
+        <input type="file" name="image" id="image" >
+        <br>
+        <input type="submit" value="افزودن" class="add-btn">
+        <a href="{% url 'Gallery:Home' %}" class="cancel-btn">بازگشت</a>
+    </form>
+{% endblock body %}

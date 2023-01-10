@@ -1,0 +1,9 @@
+.container{
+    direction: rtl;
+    font-size: 32px;
+}
+
+.container a {
+    text-decoration: none;
+    color: #EC407A;
+}

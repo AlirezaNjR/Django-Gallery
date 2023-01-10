@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.eot');
+    src: local('../fonts/Vazir'), url('../fonts/Vazir.woff') format('woff'), url('../fonts/Vazir.ttf') format('truetype'), url('../fonts/Vazir.svg') format('svg');
+}
+  
+  @font-face {
+    font-family: 'Hekayat';
+    src: url('../fonts/Hekayat\ Font.ttf');
+}
+
+*{
+    font-family: 'Vazir';
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.conttainer{
+    display: grid;
+    grid-template-rows: 700px max-content max-content;
+    margin: 20px;
+}
+
+.image-detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: flex-start;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+}
+
+.detail-box{
+    /* margin-top: 50px; */
+    font-size: 26px;
+    width: 95%;
+    text-align: center;
+}
+
+.detail-item{
+    font-size: 26px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+.change-btn {
+    padding: 10px;
+    margin: 5px;
+    font-size: 26px;
+    background-color: #4fff60;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s all;
+    border: transparent;
+    text-decoration: none;
+}
+  
+.change-btn:hover {
+    background-color: #333;
+    color: #4fff60;
+    border-radius: 35px;
+}
+  
+
+.download-btn{
+    width: 50%;
+    height: 40px;
+    padding: 13px 29%;
+    font-size: 26px;
+    border-radius: 25px;
+    background-color: #EC407A;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download-btn:hover{
+    background-color: #333;
+    color: #EC407A;
+    
+}
+
+.delete-btn {
+    padding: 10px;
+    margin: 5px;
+    font-size: 26px;
+    background-color: #ff3737;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s all;
+    border: transparent;
+    text-decoration: none;
+}
+  
+.delete-btn:hover {
+    background-color: #333;
+    color: #fff;
+    border-radius: 35px;
+}
+  
+
+.tag{
+    background-color: #ccc;
+    font-size: 18px;
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.tag:hover{
+    font-size: 20px;
+    background-color: #EC407A;
+}
+
+.comments{
+    border: 1px solid #EC407A;
+    padding: 10px;
+}
+
+.comment{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #333;
+}
+
+.comment-name{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.comment-form{
+    justify-items: center;
+    align-items: center;
+    margin: 20px;
+    font-size: 22px;
+}
+
+.comment-form label{
+    display: block;
+}
+
+.comment-form input{
+    width: 30%;
+    height: 35px;
+    font-size: 20px;
+}
+.comment-form textarea{
+    width: 30%;
+    height: 200px;
+    font-size: 20px;
+}
+
+.submit-btn{
+    font-size: 26px;
+    border-radius: 25px;
+    background-color: #EC407A;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.submit-btn:hover{
+    background-color: #333;
+    color: #EC407A;
+
+}

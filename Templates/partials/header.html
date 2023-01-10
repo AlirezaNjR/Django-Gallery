@@ -1,0 +1,33 @@
+{% load static %}
+<div class="wrapper cf">
+	<h1 class="tcu-alignc tcu-below32"><a href="{% url 'Gallery:Home' %}" style="color: #000;text-decoration: none;">گالری تصاویر</a>
+		
+	</h1>
+	<div style="width: auto; height:auto; position: absolute;right: 10px;top:23px; direction: rtl;">
+		{% if user.is_authenticated %}
+		<img 
+		{% if user.avatar %}
+		src="{{ user.avatar.url }}" 
+		{% else %}
+		src="{% static 'pics/user.png' %}"
+		{% endif %}
+		class="user-photo">
+		<span style="float: left; font-size: 33px;" >
+			<a href="{% url 'Accounts:Profile' user.id %}" style="text-decoration: none; color: #000;"> 
+				{% if user.first_name or user.last_name %}
+				{{user.first_name}}  {{user.last_name}}
+				{% else %}
+				{{user.username}}
+				{% endif %} 
+			</a>
+			<a href="{% url 'logout' %}" class="logout">خروج</a>
+			<a href="{% url 'Accounts:Profile' user.id %}" class="profile"> نمایه </a>
+		</span>
+	{% else %}
+		<a href="{% url 'Accounts:Create_user' %}"  class="signup">عضویت</a>
+		<a href="{% url 'login' %}"  class="signin">ورود</a>
+	{% endif %}
+	</div>
+	<a href="{% url 'Gallery:Add_Pic' %}"  class="add-photo-btn"> افزودن عکس </a>
+</div>
+

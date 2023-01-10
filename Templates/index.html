@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/partials/header.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/partials/search.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/partials/nav.css' %}" />
+	<link type="text/css" rel="stylesheet" href="{% static 'css/partials/pagin.css' %}" />
+{% endblock head %}
+
+{% block body %}
+
+	{% include "partials/header.html" %}
+	{% include 'partials/search.html' %}
+	{% include 'partials/nav.html' %}
+
+	{% if search_word %}
+		<p class="tag-search" style="font-size: 22px;">تصاویر دارای کلمه {{search_word}}</p>
+	{% endif %}
+	<div class="mother">
+		<div class="container">
+			{% for Photo in Gallery %}
+				<div class="item">
+					<a href="{% url 'Gallery:Detail' Photo.id %}">
+						<img src="
+						{% if Photo.image %} 
+							{{Photo.image.url}} 
+						{% else %} 
+							{% static 'pics/404.jpg' %}
+						{% endif %}"
+						class="photo"
+						title="{{Photo.title}}"
+						>
+					</a>
+				</div>
+				{% empty %}
+				<p style="font-size: 32px;color: red;margin: auto;">هیچ عکسی وجود ندارد</pس>
+			{% endfor %}
+		</div>
+		
+	</div>
+	<br>
+	<br>
+	
+		{% include "partials/pagin.html" with page=Gallery%}
+{% endblock body %}

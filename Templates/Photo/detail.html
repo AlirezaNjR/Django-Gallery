@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <title>عکس {{Photo.title}}</title>
+{% endblock head %}
+
+{% block body %}
+    {% include "partials/header.html" %}
+    <div class="conttainer">
+        <div class="image-detail">
+            <div class="detail-box">
+                <p class="detail-item"> عنوان : {{Photo.title}}</p>
+                <pre class="detail-item" style="text-align: right;" disabled>توضیحات : {{Photo.body}}</pre>
+                <p class="detail-item"> عکاس : 
+                    <a href="{% url 'Accounts:Profile' Photo.photo_grapher.id %}" style="color: #EC407A; text-decoration: none;">
+                        {% if Photo.photo_grapher.first_name or Photo.photo_grapher.last_name %}
+                            {{Photo.photo_grapher.first_name}}  {{Photo.photo_grapher.last_name}}
+                        {% else %}
+                            {{Photo.photo_grapher}}
+                        {% endif %}</a>
+                </p>
+                <p class="detail-item">زمان : {{Photo.date|date:'H:i - Y,m,d'}}</p>
+                <p class="detail-item">مکان : {{Photo.location}}</p>
+                <br>
+                {% if user.username == Photo.photo_grapher.username %}
+                    <a href="{% url 'Gallery:Change' Photo.id %}" class="change-btn" >ویرایش</a>
+                {% endif %}
+                <a href="{{Photo.image.url}}" class="download-btn">دانلود</a>
+                {% if user.username == Photo.photo_grapher.username %}
+                    <a href="{% url 'Gallery:Delete' Photo.id %}" class="delete-btn" >حذف</a>
+                {% endif %}
+                    
+                <p class="detail-item" style="margin-top: 30px;">
+                    {% for tag in tags %}
+                        <a class="tag" href="{% url 'Gallery:Tag' tag.slug %}">{{tag}}</a>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="image-box">
+                <img src="{{Photo.image.url}}"  alt="" class="image">
+            </div>
+        </div>
+        
+        {% if comments %}
+            <div class="comments">
+                <h1>تعداد {{comments.count}} دیدگاه  : </h1>
+                {% for comment in comments %}
+                    <div class="comment">
+                        <span class="comment-name">{{comment.name}} گفت : </span>
+                        <pre class="comment-body">{{comment.body}}</pre>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <h1>اولین نفری باشید که دیدگاه میگذارد</h1>
+            {% endif %}
+                
+        <div class="comment-form">
+            <form action="" method="post" > 
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="ارسال" class="submit-btn">
+            </form>
+        </div>
+    </div>
+{% endblock body %}

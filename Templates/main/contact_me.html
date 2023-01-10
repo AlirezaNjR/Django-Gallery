@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title> اطلاعات من </title>
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main/contact_me.css' %}">
+{% endblock head %} 
+
+{% block body %}
+    {% include 'partials/header.html' %}
+    <div class="container">
+        <h1></h1>
+        <p> اسم من علیرضا نجفی هست من توسعه دهنده این سایت هستم</p>
+        <i class="fa fa-instagram"></i><a href="https://www.instagram.com/Alireza_Nj_R">  اینستاگرام من</a><br>
+        <i class="fa fa-telegram"></i><a href="http://www.t.me/Alireza_Nj_Rose"></i> تلگرام من </a><br>
+        <i class="fa fa-phone"></i><a href="tel:+989054694559">  شماره تماس  </a> | <a href="tel:+989213714657"> <i class=""></i> شماره تماس</a><br>
+        <i class="fa fa-google"></i><a href="mailto:Alireza.Nj.Rose@gmail.com">  ایمیل من</a><br>
+        <i class="fa fa-github"></i><a href="https://github.com/AlirezaNjR"> گیت هاب من </a><br>
+        <img src="{% static 'pics/quera.png' %}" width="30px" height="30px" ><a href="https://quera.org/profile/Alireza.Najafi.r"> پروفایل من در کوئرا </a>
+    </div>
+{% endblock body %}

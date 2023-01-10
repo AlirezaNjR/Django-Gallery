@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+    <title>ویرایش عکس </title>
+    <link rel="stylesheet" href="{% static 'css/change.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+
+{% endblock head %}
+
+{% block body %}
+    {% include 'partials/header.html' %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            {% for field in form %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                       <p class="error" style="color:red ; font-size: 26px;"> <i class="fa fa-exclamation-triangle"></i> {{field.label}} : {{error}}</p>
+                    {% endfor %}
+                {% endif %} 
+            {% endfor %}
+        {% endif %}
+
+        <label for="title"><span style="color: red;">*</span>عنوان :</label>
+        <input type="text" name="title" id="title" required placeholder="گل زیبا" autofocus value="{{Photo.title}}">
+        <br>
+        <label for="body"><span style="color: red;">*</span>توضیحات :</label>
+        <textarea name="body" id="body" cols="30" rows="10" placeholder="گل رز در ایران" required > {{Photo.body}} </textarea>
+        <br>
+        <label for="location">مکان :</label>
+        <select name="location" id="location" >
+            <option value="ایران" {% if Photo.location == 'ایران' %} selected {% endif %}> ایران </option>
+            <option value="آمریکا" {% if Photo.location == 'آمریکا' %} selected {% endif %}> آمریکا </option>
+            <option value="ترکیه" {% if Photo.location == 'ترکیه' %} selected {% endif %}> ترکیه </option>
+            <option value="کره" {% if Photo.location == 'کره'%} selected {% endif %}> کره </option>
+            <option value="روسیه" {% if Photo.location == 'روسیه' %} selected {% endif %}> روسیه </option>
+        </select>
+        <br>
+        <label for="tags" title="تگ هارا با , از هم جدا کنید"><span style="color: red;">*</span> تگ ها : </label>
+        <input type="text" name="tags" id="tags" required placeholder="مثال:ایران , گل , رز" title="تگ هارا با , از هم جدا کنید" value=" {{tags|join:' , '}}" >
+        <br>
+        <label for="image" style="display: inline;" ><span style="color: red;">*</span> تصویر : </label>
+        <input type="file" name="image" id="image" >
+        <br>
+        <input type="submit" value="ویرایش" class="change-btn">
+        <a href="{% url 'Gallery:Detail' Photo.id %}" class="cancel-btn">بازگشت</a>
+    </form>
+{% endblock body %}

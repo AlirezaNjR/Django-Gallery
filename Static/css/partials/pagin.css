@@ -1,0 +1,18 @@
+.paginator{
+    text-align: center;
+}
+
+.paginator a {
+    grid-row: 2/3;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.page-number {
+    display: inline-block;
+}
+
+.page-number li {
+    display: inline-block;
+    font-size: 24px;
+}

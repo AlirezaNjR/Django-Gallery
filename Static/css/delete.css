@@ -1,0 +1,42 @@
+*{
+    direction: rtl;
+}
+.image{
+    width: 100%;
+    height: 70vh;
+}
+
+.delete-btn{
+    background-color: #ff3737;
+    color: #333;
+    padding: 20px 40px;
+    margin: 5px;
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.3s all;
+    border: transparent;
+}
+
+.delete-btn:hover{
+    background-color: #333;
+    color: #fff;
+    border-radius: 35px;
+}
+
+.cancel-btn{
+    background-color: #25ffe9;
+    color: #333;
+    padding: 20px 40px;
+    margin: 5px;
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.3s all;
+    text-decoration: none;
+    border: transparent;
+}
+
+.cancel-btn:hover{
+    background-color: #333;
+    color: #fff;
+    border-radius: 35px;
+}

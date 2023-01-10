@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <title> نمایه {{User.first_name}}  {{User.last_name}} </title>
+{% endblock head %}
+
+{% block body %}
+    {% include 'partials/header.html' %}
+    <div class="container">
+        <div class="left"></div>
+        <div class="center"> 
+            <img 
+            {% if User.avatar %}
+                src="{{ User.avatar.url }}" 
+            {% else %}
+                src="{% static 'pics/user.png' %}"
+            {% endif %}
+            class="avatar" > 
+                <p class="username"> نام کاربری : {{ User.username }}</p>
+                <p class="name">نام و نام خانوادگی : {{User.first_name}}  {{User.last_name}} </p>
+                <p class="location">مکان : <span style="text-transform: uppercase;"> {{User.location}} </span></p>
+                <p class="email"> پست الکترونیک : <a href="mailto:{{User.email}}">{{User.email}}</a></p>
+                <p class="age"> سن : {{User.age}} </p>
+                <p class="gender"> جنسیت : {{User.gender}}</p>
+        </div>
+        <div class="right"></div>
+
+        <div class="last-photo-box">
+            {% for photo in Last_Photo %}
+            <div>
+                <a href="{% url 'Gallery:Detail' photo.id %}">
+                    <img src="{{ photo.image.url }}" class="last-photo-image">
+                </a>
+                <p style="text-align: center; font-size: 20px;">{{photo.title}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock body %}

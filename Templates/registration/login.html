@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>ورود</title>
+    <link rel="stylesheet" href="{% static 'css/registration/login.css' %}">
+    {% endblock head %}
+    
+    {% block body %}
+    <div class="container">
+        <!-- <div class="row-center"> -->
+            <form method="POST" class="login-form center">
+                {% csrf_token %}
+                <label for="username" >نام کاربری : </label>
+                <input type="text" name="username" placeholder="example" id="username" required autofocus>
+                <br>
+                <label for="pass">رمز عبور : </label>
+                <input type="password" name="password" id="pass" required autofocus>
+                <br>
+                <a href="{% url 'Accounts:Create_user' %}" class="cancel-btn">ثبت نام</a>
+                <input type="submit" value="ورود" class="login-btn">
+            </form>
+        <!-- </div> -->
+    </div>
+{% endblock body %}
