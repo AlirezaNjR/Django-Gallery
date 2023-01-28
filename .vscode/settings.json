@@ -1,8 +1,0 @@
-{
-    "python.analysis.typeCheckingMode": "off",
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#480D69",
-        "titleBar.activeBackground": "#641294",
-        "titleBar.activeForeground": "#FDFAFE"
-    }
-}
